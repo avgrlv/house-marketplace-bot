@@ -1,0 +1,17 @@
+server:
+  port: 8181
+spring:
+  config:
+    import:
+      - telegram-config.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=telegram
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true

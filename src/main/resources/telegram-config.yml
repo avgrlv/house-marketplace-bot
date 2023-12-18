@@ -1,0 +1,7 @@
+telegram:
+  api-url: "https://api.telegram.org/"
+  bot:
+    house-marketplace:
+      name: "CommerceBot"
+      webhook-path: ""
+      token:
