@@ -1,11 +1,11 @@
 package com.avglv.housemarketplacebot.config;
 
-import lombok.Getter;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-@Component
-@Getter
+@Configuration
+@Data
 public class TelegramConfig {
     @Value("${telegram.bot.house-marketplace.token}")
     private String token;

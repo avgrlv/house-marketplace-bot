@@ -1,6 +1,8 @@
 package com.avglv.housemarketplacebot;
 
+import com.avglv.housemarketplacebot.telegram.HouseMarketplaceBot;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,14 +16,6 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class HouseMarketplaceBotApplication {
 
     public static void main(String[] args) {
-
-        ConfigurableApplicationContext ctx = SpringApplication.run(HouseMarketplaceBotApplication.class, args);
-        try {
-            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(ctx.getBean("houseMarketplaceBot", AbilityBot.class));
-        } catch (TelegramApiException e) {
-            throw new RuntimeException(e);
-        }
+        SpringApplication.run(HouseMarketplaceBotApplication.class, args);
     }
-
 }
