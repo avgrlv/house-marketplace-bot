@@ -5,7 +5,7 @@ spring:
     import:
       - telegram-config.yml
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=telegram
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=housemarketplace
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver

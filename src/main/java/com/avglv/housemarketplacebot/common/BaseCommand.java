@@ -5,14 +5,12 @@ import lombok.extern.log4j.Log4j2;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Data
 @Log4j2
-public abstract class BaseCommand implements Command {
+public abstract class BaseCommand implements Applyable {
     String name;
     String description;
-
     Long chatId;
     User telegramUser;
 
@@ -21,8 +19,8 @@ public abstract class BaseCommand implements Command {
         this.description = description;
     }
 
-    public static String getCommand(BaseCommand command) {
-        return "/" + command.name;
+    public String getCommandNameFull() {
+        return "/" + this.name;
     }
 
     public static SendMessage unknownCommand(Long chatId) {
@@ -32,5 +30,9 @@ public abstract class BaseCommand implements Command {
                 .build();
     }
 
-
+    public SendMessage apply(Update update) {
+        this.chatId = update.getMessage().getChatId();
+        this.telegramUser = update.getMessage().getFrom();
+        return handle(update);
+    }
 }
