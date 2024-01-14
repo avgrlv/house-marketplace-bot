@@ -1,6 +1,6 @@
 package com.avglv.housemarketplacebot.telegram.commands;
 
-import com.avglv.housemarketplacebot.common.BaseCommand;
+import com.avglv.housemarketplacebot.common.command.BaseCommand;
 import com.avglv.housemarketplacebot.services.PersonService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

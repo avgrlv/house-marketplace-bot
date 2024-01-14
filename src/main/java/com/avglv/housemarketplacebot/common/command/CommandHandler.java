@@ -1,4 +1,4 @@
-package com.avglv.housemarketplacebot.common;
+package com.avglv.housemarketplacebot.common.command;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;

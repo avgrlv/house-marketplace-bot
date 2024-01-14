@@ -1,5 +1,7 @@
-package com.avglv.housemarketplacebot.common;
+package com.avglv.housemarketplacebot.common.command;
 
+import com.avglv.housemarketplacebot.common.Applyable;
+import com.avglv.housemarketplacebot.entities.enums.Role;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

@@ -1,6 +1,7 @@
 package com.avglv.housemarketplacebot.services;
 
 import com.avglv.housemarketplacebot.entities.Person;
+import com.avglv.housemarketplacebot.entities.enums.Role;
 import com.avglv.housemarketplacebot.repositories.PersonRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class PersonService {
     @Transactional
     public void createUser(User telegramUser) {
         if (!personRepository.existsById(telegramUser.getId())) {
-            Person person = new Person(telegramUser);
+            Person person = new Person(telegramUser, Role.CUSTOMER);
             personRepository.save(person);
         }
     }

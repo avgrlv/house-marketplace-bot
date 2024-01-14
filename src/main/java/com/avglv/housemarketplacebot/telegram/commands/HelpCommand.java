@@ -1,7 +1,7 @@
 package com.avglv.housemarketplacebot.telegram.commands;
 
-import com.avglv.housemarketplacebot.common.BaseCommand;
-import com.avglv.housemarketplacebot.common.CommandHandler;
+import com.avglv.housemarketplacebot.common.command.BaseCommand;
+import com.avglv.housemarketplacebot.common.command.CommandHandler;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
