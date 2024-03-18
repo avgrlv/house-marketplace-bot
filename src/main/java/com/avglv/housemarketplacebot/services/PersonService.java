@@ -16,7 +16,7 @@ public class PersonService {
     @Transactional
     public void createUser(User telegramUser) {
         if (!personRepository.existsById(telegramUser.getId())) {
-            Person person = new Person(telegramUser, Role.CUSTOMER);
+            Person person = new Person(telegramUser, Role.UNKNOWN);
             personRepository.save(person);
         }
     }

@@ -11,6 +11,4 @@ public class TelegramConfig {
     private String token;
     @Value("${telegram.bot.house-marketplace.name}")
     private String name;
-    @Value("${telegram.bot.house-marketplace.webhook-path}")
-    private String webhookPath;
 }

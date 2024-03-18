@@ -7,6 +7,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.telegram.telegrambots.meta.api.objects.User;
 
 @Entity
 @NoArgsConstructor
@@ -17,11 +18,10 @@ public class Person {
     private String userName;
     private String lastName;
     private String firstName;
-
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public Person(org.telegram.telegrambots.meta.api.objects.User telegramUser, Role role) {
+    public Person(User telegramUser, Role role) {
         this.id = telegramUser.getId();
         this.userName = telegramUser.getUserName();
         this.firstName = telegramUser.getFirstName();

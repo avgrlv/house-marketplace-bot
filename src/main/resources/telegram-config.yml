@@ -3,5 +3,4 @@ telegram:
   bot:
     house-marketplace:
       name: "CommerceBot"
-      webhook-path: ""
-      token: "6933511415:AAEAd78yyuMuVXevGjKI00y98FUU0MAPsG8"
+      token: "6933511415:AAFvJ4H1cNzQLIKlxMw7fW8QGxerT6sYlns"
