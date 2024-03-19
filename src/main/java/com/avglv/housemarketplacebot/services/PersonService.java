@@ -1,7 +1,7 @@
 package com.avglv.housemarketplacebot.services;
 
 import com.avglv.housemarketplacebot.entities.Person;
-import com.avglv.housemarketplacebot.entities.enums.Role;
+import com.avglv.housemarketplacebot.entities.enums.RoleEnum;
 import com.avglv.housemarketplacebot.repositories.PersonRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,10 @@ public class PersonService {
     private PersonRepository personRepository;
 
     @Transactional
-    public void createUser(User telegramUser) {
-        if (!personRepository.existsById(telegramUser.getId())) {
-            Person person = new Person(telegramUser, Role.UNKNOWN);
-            personRepository.save(person);
-        }
+    public Person createUser(User telegramUser) {
+        Person person = new Person(telegramUser, RoleEnum.UNKNOWN);
+        personRepository.save(person);
+        return person;
     }
 
 }

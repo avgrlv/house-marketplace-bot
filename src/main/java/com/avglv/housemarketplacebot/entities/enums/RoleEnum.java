@@ -1,5 +1,5 @@
 package com.avglv.housemarketplacebot.entities.enums;
 
-public enum Role {
+public enum RoleEnum {
     UNKNOWN, ADMIN, CUSTOMER, SUPPLIER
 }
