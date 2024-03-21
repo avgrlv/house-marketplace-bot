@@ -35,6 +35,6 @@ public abstract class BaseCommand implements Applicable {
     public SendMessage apply(Update update, Set<RoleEnum> availableRoles) {
         this.chatId = update.getMessage().getChatId();
         this.telegramUser = update.getMessage().getFrom();
-        return handle(update);
+        return handle(update, availableRoles);
     }
 }

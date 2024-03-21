@@ -21,7 +21,7 @@ public class BaseAdminCommand extends BaseCommand {
     }
 
     @Override
-    public SendMessage handle(Update update) {
+    public SendMessage handle(Update update, Set<RoleEnum> userRoles) {
         SendMessage msg = new SendMessage();
         msg.setChatId(getChatId());
 

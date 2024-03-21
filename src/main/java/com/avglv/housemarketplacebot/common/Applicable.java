@@ -9,6 +9,6 @@ import java.util.Set;
 public interface Applicable {
     SendMessage apply(Update update, Set<RoleEnum> userRoles);
 
-    SendMessage handle(Update update);
+    SendMessage handle(Update update, Set<RoleEnum> userRoles);
 
 }

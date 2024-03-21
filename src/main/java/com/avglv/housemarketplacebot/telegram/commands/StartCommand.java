@@ -18,12 +18,12 @@ public class StartCommand extends BaseCommand {
 
     public StartCommand() {
         super("start", "Запуск бота",
-                Set.of(RoleEnum.UNKNOWN, RoleEnum.ADMIN, RoleEnum.CUSTOMER, RoleEnum.SUPPLIER)
+                RoleEnum.getAllRole()
         );
     }
 
     @Transactional
-    public SendMessage handle(Update update) {
+    public SendMessage handle(Update update, Set<RoleEnum> userRoles) {
         SendMessage msg = new SendMessage();
         msg.setChatId(getChatId());
         msg.setText("Бот запущен. Добро пожаловать " + getTelegramUser().getLastName()
