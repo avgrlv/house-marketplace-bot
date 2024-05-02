@@ -5,9 +5,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.apache.commons.lang3.builder.HashCodeExclude;
 import org.telegram.telegrambots.meta.api.objects.User;
 
 import java.util.ArrayList;
@@ -16,7 +15,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {
@@ -26,7 +26,7 @@ public class Person {
     private String lastName;
     private String firstName;
     @OneToMany(mappedBy = "person", orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<Role> roles = new ArrayList<>();
+    private Set<Role> roles = new HashSet<>();
 
     public Person(User telegramUser, RoleEnum role) {
         this.id = telegramUser.getId();

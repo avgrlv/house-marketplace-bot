@@ -14,7 +14,7 @@ public class Role {
     private Long id;
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Person person;
 
     public Role(RoleEnum role, Person person) {

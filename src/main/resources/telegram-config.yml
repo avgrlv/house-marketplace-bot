@@ -1,6 +1,9 @@
 telegram:
-  api-url: "https://api.telegram.org/"
+  #  api-url: "https://api.telegram.org/"
+  proxy:
+    host: "10.3.254.50"
+    port: 3128
   bot:
     house-marketplace:
       name: "CommerceBot"
-      token: "6933511415:AAFvJ4H1cNzQLIKlxMw7fW8QGxerT6sYlns"
+      token: "6933511415:AAGVslXnvBNEd5cKJHg7tQNueTjpFKdwRXE"

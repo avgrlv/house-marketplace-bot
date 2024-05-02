@@ -30,7 +30,7 @@ public class CommandHandler {
     public static final Map<String, BaseCommand> commands = new HashMap<>();
 
     public CommandHandler(Set<BaseCommand> commands) {
-        commands.forEach((command) -> CommandHandler.commands.put(command.getCommandNameFull(), command));
+        commands.forEach((command) -> CommandHandler.commands.put(command.getCommand(), command));
     }
 
     @Transactional
@@ -39,30 +39,17 @@ public class CommandHandler {
         BaseCommand command = CommandHandler.commands.get(commandName);
         if (command == null)
             return unknownCommand(update.getMessage().getChatId());
+
         Person person = personRepository
                 .findById(update.getMessage().getFrom().getId())
                 .orElse(null);
+
         if (person == null) {
             person = this.personService.createUser(update.getMessage().getFrom());
         }
 
-        Set<RoleEnum> userRole = person.getRoles()
-                .stream()
-                .map(Role::getRole)
-                .collect(Collectors.toSet());
-
-        if (Sets.intersection(command.getAvailableRoles(), userRole).isEmpty())
-            return permissionDenied(update.getMessage().getChatId());
-
-        return command.apply(update, userRole);
+        return command.apply(update, person.getRoles());
     }
-
-    private SendMessage permissionDenied(Long chatId) {
-        return SendMessage.builder().chatId(chatId)
-                .text("Недостаточно прав для выполнения данной команды")
-                .build();
-    }
-
 
     private SendMessage unknownCommand(Long chatId) {
         return SendMessage.builder().chatId(chatId)

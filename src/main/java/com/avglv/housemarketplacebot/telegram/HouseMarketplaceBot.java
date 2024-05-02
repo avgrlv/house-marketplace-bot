@@ -16,8 +16,9 @@ public class HouseMarketplaceBot extends TelegramLongPollingBot {
     TelegramConfig config;
     CommandHandler commandHandler;
 
-    public HouseMarketplaceBot(TelegramConfig config, CommandHandler commandHandler) {
-        super(new DefaultBotOptions(), config.getToken());
+    public HouseMarketplaceBot(TelegramConfig config,
+                               CommandHandler commandHandler) {
+        super(config.proxyConfiguration(), config.getToken());
         this.config = config;
         this.commandHandler = commandHandler;
     }

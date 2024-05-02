@@ -6,18 +6,20 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-@Component
-public class StartCommand extends BaseCommand {
+import java.util.Set;
 
-    public StartCommand() {
-        super("start", "Запуск бота", RoleEnum.getAllRole());
+@Component
+public class StopCommand extends BaseCommand {
+
+    public StopCommand() {
+        super("stop", "Завершить работу бота", Set.of(RoleEnum.UNKNOWN, RoleEnum.CUSTOMER));
     }
 
     @Override
     public SendMessage handle(Update update) {
         SendMessage msg = new SendMessage();
         msg.setChatId(getChatId());
-        msg.setText("Бот запущен. Добро пожаловать " + getTelegramUser().getLastName()
+        msg.setText("Бот остановлен. Хорошего дня " + getTelegramUser().getLastName()
                 + " " + getTelegramUser().getFirstName() + "!");
         return msg;
     }
